@@ -1,14 +1,14 @@
 cmake_minimum_required (VERSION 2.6)
 project(dqn)
 
-option(CPU_ONLY "Use CPU only for Caffe" ON)
+option(CPU_ONLY "Use CPU only for Caffe" OFF)
 option(USE_CUDNN "Use cuDNN for Caffe" OFF)
 option(USE_SDL "Use SDL for ALE" ON)
 
-include_directories(~/caffe/include)
-include_directories(~/ale_0.4.4/ale_0_4/src)
-link_directories(~/caffe/build/lib)
-link_directories(~/ale_0.4.4/ale_0_4)
+include_directories(/home/chappie/caffe/include)
+include_directories(/home/chappie/ale_0.4.4/ale_0_4/src)
+link_directories(/home/chappie/caffe/build/lib)
+link_directories(/home/chappie/ale_0.4.4/ale_0_4)
 if(USE_CUDNN)
   link_directories(~/cudnn-6.5-linux-R1)
 endif()
@@ -43,7 +43,7 @@ if(USE_SDL)
 endif()
 
 if(NOT CPU_ONLY)
-  include_directories(/usr/local/cuda-6.5/targets/x86_64-linux/include)
+  include_directories(/usr/local/cuda-7.5/include)
 endif()
 
 if(CPU_ONLY)
